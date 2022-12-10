@@ -1,17 +1,55 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Update Data
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-label>NPM</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="npm"></ion-input>
+  </ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-label>Nama Mahasiswa</ion-label>
+  <ion-item>
+    <ion-input [(ngModel)]="nama_mahasiswa"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-radio-group [(ngModel)]="jenis_kelamin">
+
+      <ion-list-header>
+        <ion-label>
+          Jenis Kelamin
+        </ion-label>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Laki-Laki</ion-label>
+        <ion-radio value="L"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Perempuan</ion-label>
+        <ion-radio value="P"></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-label>Jurusan</ion-label>
+  <ion-select [(ngModel)]="jurusan">
+    <ion-select-option value="Teknik Informatika">Teknik Informatika</ion-select-option>
+    <ion-select-option value="Sistem Informasi">Sistem Informasi</ion-select-option>
+    <ion-select-option value="Teknik Komputer">Teknik Komputer</ion-select-option>
+  </ion-select>
+  <img src="http://localhost/api_tugas/uploads/'+foto_siswa+'" />
+  <ion-label>Foto Siswa</ion-label>
+  <ion-item>
+    <input type="file" (change)="imageUpload($event)" />
+  </ion-item>
+
+  <ion-button expand="block" (click)="updateData()" color="primary">Simpan</ion-button>
 </ion-content>
